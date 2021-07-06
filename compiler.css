@@ -326,7 +326,6 @@ img{
     opacity: 0;
 }
 .g-search{
-  
   display: none;
 }
 .line{
@@ -342,7 +341,7 @@ img{
   background-color:#333642 ;
 }
 .about-child{
-width: 85%;
+width: 75%;
 height: auto;
 text-align: start;
 }
