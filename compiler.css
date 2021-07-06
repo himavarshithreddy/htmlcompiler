@@ -237,7 +237,7 @@ img{
     display: inline-block;
     height: 16px;
     position: relative;
-    width: 33px;
+    width: 35px;
   }
   
   .check input {
@@ -271,7 +271,7 @@ img{
   }
   
   input:checked + .slider:before {
-    transform: translateX(17px);
+    transform: translateX(15px);
   }
   
   .slider.round {
