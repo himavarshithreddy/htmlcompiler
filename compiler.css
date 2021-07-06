@@ -380,4 +380,6 @@ letter-spacing: 3px;
 
 span{
   color: #00ff00;
+  cursor: pointer;
+  text-decoration: underline;
 }
