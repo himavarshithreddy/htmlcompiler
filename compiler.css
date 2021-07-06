@@ -345,8 +345,9 @@ img{
   
 }
 .about-child{
-width: 70%;
+width: 73%;
 height: auto;
 text-align: start;
 border: 1px solid #a5a4a4;
+box-shadow: -5px 10px 10px white , 5px -10px 10px white;
 }
