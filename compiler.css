@@ -339,9 +339,10 @@ img{
   justify-content: center;
   color: white;
   background-color:#333642 ;
-  margin-top: 4%;
+  margin-top: 3.4%;
   font-family: 'Encode Sans SC', sans-serif;
   letter-spacing: 0.7mm;
+  border: 1px solid #a5a4a4;
 }
 .about-child{
 width: 70%;
