@@ -326,3 +326,8 @@ img{
   
   display: none;
 }
+.line{
+  width: 700px;
+  background-color: white;
+  height: 20px;
+}
