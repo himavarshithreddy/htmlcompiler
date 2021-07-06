@@ -237,7 +237,7 @@ img{
     display: inline-block;
     height: 16px;
     position: relative;
-    width: 37px;
+    width: 33px;
   }
   
   .check input {
@@ -260,7 +260,7 @@ img{
     bottom: 1px;
     content: "";
     height: 14px;
-    left: 2.5px;
+    left: 3px;
     position: absolute;
     transition: .4s;
     width: 14px;
