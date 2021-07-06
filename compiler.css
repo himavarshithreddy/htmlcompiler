@@ -334,3 +334,14 @@ img{
   background-color: white;
   height: 20px;
 }
+.about{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color:#333642 ;
+}
+.about-child{
+width: 85%;
+height: auto;
+}
