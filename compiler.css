@@ -340,7 +340,7 @@ img{
   justify-content: center;
   color: white;
   background-color:#333642 ;
-  margin-top: 4%;
+  
   font-family: 'Encode Sans SC', sans-serif;
   letter-spacing: 0.7mm;
   
@@ -349,6 +349,7 @@ img{
   background-color: #1d1e22;
 width: 73%;
 height: auto;
+margin-top: 4%;
 text-align: start;
 border: 1px solid #a5a4a4;
 box-shadow: -10px 12px 30px 7px gray , 10px -12px 30px 7px gray;
