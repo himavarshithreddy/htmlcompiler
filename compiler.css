@@ -350,5 +350,5 @@ width: 73%;
 height: auto;
 text-align: start;
 border: 1px solid #a5a4a4;
-box-shadow: -25px 30px 30px gray , 25px -30px 30px gray;
+box-shadow: -25px 30px 30px 25px gray , 25px -30px 30px 25px gray;
 }
