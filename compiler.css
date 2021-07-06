@@ -155,11 +155,13 @@ iframe{
     margin: 0;   
     width: 25px;
     height: 27px;
+    opacity: 0.8;
     
 }
 .close:hover{
     transform: scale(1.05);
-    opacity: 0.8;
+    opacity: 0.6;
+    background-color: gray;
     
 }
 .dm{
