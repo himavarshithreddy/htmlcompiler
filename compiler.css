@@ -342,10 +342,11 @@ img{
   margin-top: 3.4%;
   font-family: 'Encode Sans SC', sans-serif;
   letter-spacing: 0.7mm;
-  border: 1px solid #a5a4a4;
+  
 }
 .about-child{
 width: 70%;
 height: auto;
 text-align: start;
+border: 1px solid #a5a4a4;
 }
