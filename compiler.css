@@ -235,9 +235,9 @@ img{
 
   .check {
     display: inline-block;
-    height: 20px;
+    height: 16px;
     position: relative;
-    width: 40px;
+    width: 37px;
   }
   
   .check input {
@@ -259,11 +259,11 @@ img{
     background-color: #fff;
     bottom: 1px;
     content: "";
-    height: 18px;
+    height: 14px;
     left: 2.5px;
     position: absolute;
     transition: .4s;
-    width: 18px;
+    width: 14px;
   }
   
   input:checked + .slider {
