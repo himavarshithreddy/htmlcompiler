@@ -344,4 +344,5 @@ img{
 .about-child{
 width: 85%;
 height: auto;
+text-align: start;
 }
