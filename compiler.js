@@ -266,6 +266,6 @@ function download(){
     $(".light,.dark").toggleClass("light").toggleClass("dark");
 });
 
-function eraseText() {
+function clear() {
   document.getElementById("htmlcode").value = "";
 }
