@@ -265,3 +265,7 @@ function download(){
     $("#theme").on("click", function(){
     $(".light,.dark").toggleClass("light").toggleClass("dark");
 });
+
+function clear(){
+  document.getElementById("htmlcode").value.replace("<html>");
+}

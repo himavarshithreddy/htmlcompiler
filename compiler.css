@@ -383,3 +383,6 @@ span{
   cursor: pointer;
   text-decoration: underline;
 }
+span:hover{
+  opacity: 0.8;
+}
