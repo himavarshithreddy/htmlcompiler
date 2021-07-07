@@ -388,9 +388,10 @@ span:hover{
 }
 .clear1{
   position: absolute;
-  top:60px;
-  left:700px;
+  top:20%;
+  left:46%;
   height: 10px;
+  font-size: 15px;
   width: 30px;
   color: gray;
   background-color: transparent;
