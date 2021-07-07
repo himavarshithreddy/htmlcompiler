@@ -386,3 +386,8 @@ span{
 span:hover{
   opacity: 0.8;
 }
+.clear1{
+  position: absolute;
+  top:-30px;
+  left:-50px;
+}
