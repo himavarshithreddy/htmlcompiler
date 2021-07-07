@@ -174,17 +174,7 @@ function download(){
       }
   
     // Keyboard shortcut Run
-     document.onkeyup = function runs(e) {
-   if (e.altKey && e.which == 82) {
-    var htmlCode = document.getElementById("htmlcode").value;
-  var cssCode = "<style>"+document.getElementById("cssCode").value+"</style>";
-  var jsCode = "<scri"+"pt>"+document.getElementById("jsCode").value+"</scri"+"pt>";
-  var frame = document.getElementById("result").contentWindow.document;
-  frame.open();
-  frame.write(htmlCode+cssCode+jsCode);
-  frame.close();
-}
-  }
+     
      document.onkeyup = function clearm(e) {
    if (e.altKey && e.which == 48) {
      clear1();
