@@ -388,12 +388,13 @@ span:hover{
 }
 .clear1{
   position: absolute;
-  top:50px;
-  left:500px;
+  top:60px;
+  left:700px;
   height: 10px;
   width: 30px;
   color: gray;
   background-color: transparent;
   outline: none;
   border: none;
+  cursor: pointer;
 }
