@@ -267,7 +267,7 @@ function download(){
 });
 
 function clear1() {
-  document.getElementById("htmlcode").value = "<html>
+  document.getElementById("htmlcode").innerHTML = "<html>
   <head>
     </head>    
    </html>";
