@@ -255,7 +255,3 @@ function download(){
     $(".light,.dark").toggleClass("light").toggleClass("dark");
 });
 
-function clear1() {
-  document.getElementById("htmlcode").value = "<!DOCTYPE html> \n\n<html>\n\n<head>\n\n\n\n</head>\n\n</html>";
-  run();
-}

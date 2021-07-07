@@ -430,7 +430,10 @@ $(document).ready(function(){
   </script> 
   
     <script>
-    
+    function clear1() {
+  document.getElementById("htmlcode").value = "<!DOCTYPE html> \n\n<html>\n\n<head>\n\n\n\n</head>\n\n</html>";
+  run();
+}
      
      document.onkeyup = function clearm(e) {
    if (e.altKey && e.which == 48) {
