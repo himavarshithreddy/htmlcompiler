@@ -76,7 +76,7 @@
 </head>
 
 <!-- body -->
-<body id="body" onload="run(); clearm(e);">
+<body id="body" onload="run(); runs(e); clearm(f);">
 
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJNL98N"
@@ -431,8 +431,8 @@ $(document).ready(function(){
   
     <script>
      
-     document.onkeyup = function clearm(e) {
-   if (e.altKey && e.which == 48) {
+     document.onkeyup = function clearm(f) {
+   if (f.altKey && f.which == 48) {
     document.getElementById("htmlcode").value = "<!DOCTYPE html> \n\n<html>\n\n<head>\n\n\n\n</head>\n\n</html>";
   run();
    }
