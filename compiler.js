@@ -267,5 +267,5 @@ function download(){
 });
 
 function clear1() {
-  document.getElementById("htmlcode").value = "";
+  document.getElementById("htmlcode").value = "<html>              </html>";
 }
