@@ -185,6 +185,11 @@ function download(){
   frame.close();
 }
   }
+     document.onkeyup = function clearm(e) {
+   if (e.altKey && e.which == 48) {
+     clear1();
+   }
+  }
   
     // full iframe
     function full(){
