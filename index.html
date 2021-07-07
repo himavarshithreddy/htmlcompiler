@@ -425,6 +425,10 @@ $(document).ready(function(){
      frame.write(htmlCode+cssCode+jsCode);
      frame.close();
    }
+   else if(e.altKey && e.which == 67){
+    document.getElementById("htmlcode").value = "<!DOCTYPE html> \n\n<html>\n\n<head>\n\n\n\n</head>\n\n</html>";
+  run();
+   }
      }
     
   </script> 
