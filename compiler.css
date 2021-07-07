@@ -387,7 +387,7 @@ span:hover{
   opacity: 0.8;
 }
 .clear1{
-  position: absolute;
+  position: sticky;
   top:11%;
   left:46%;
   height: 10px;
