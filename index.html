@@ -412,7 +412,9 @@ $(document).ready(function(){
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-    <script>document.onkeyup = function runs(e) {
+    <script>
+    // Keyboard shortcut Run
+    document.onkeyup = function runs(e) {
       if (e.altKey && e.which == 82) {
        var htmlCode = document.getElementById("htmlcode").value;
      var cssCode = "<style>"+document.getElementById("cssCode").value+"</style>";
@@ -422,6 +424,14 @@ $(document).ready(function(){
      frame.write(htmlCode+cssCode+jsCode);
      frame.close();
    }
-     }</script> 
+     }
+     
+    //  KeyBoard shortcut Clear
+     document.onkeyup = function clearm(e) {
+   if (e.altKey && e.which == 48) {
+     clear1();
+   }
+  }
+  </script> 
     </div>
 </html>
