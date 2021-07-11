@@ -296,6 +296,7 @@ img{
     .htmlcode{
       width:200%;
       height: 400px;
+      font-size: 18px;
     }
     .result{
       width:100%;
@@ -303,7 +304,7 @@ img{
     }
     .compiler{
       flex-direction:column;
-      justify-content: center;
+      justify-content: space-around;
     }
 .main-nav{
   display:none;
