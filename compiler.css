@@ -291,7 +291,7 @@ img{
   }
   @media only screen and (max-width: 600px) {
     .main{
-      height: 750px;
+      height: 850px;
     }
     .htmlcode{
       width:200%;
