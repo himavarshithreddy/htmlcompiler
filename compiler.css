@@ -290,13 +290,16 @@ img{
     cursor:default;
   }
   @media only screen and (max-width: 600px) {
+    .main{
+      height: 750px;
+    }
     .htmlcode{
       width:200%;
-      height:200%;
+      height:50%;
     }
     .result{
       width:200%;
-      height:60%;
+      height:50%;
     }
     .compiler{
       flex-direction:column;
