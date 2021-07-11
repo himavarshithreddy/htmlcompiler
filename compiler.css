@@ -292,10 +292,10 @@ img{
   @media only screen and (max-width: 600px) {
     .htmlcode{
       width:200%;
-      height:170%;
+      height:200%;
     }
     .result{
-      width:99%;
+      width:200%;
       height:60%;
     }
     .compiler{
@@ -320,82 +320,4 @@ img{
       font-size: 11px;
     }
   }
-.gads{
-    width: 100%;
-    height: auto;
-    opacity: 0;
-}
-.g-search{
-  display: none;
-}
-.line{
-  width: 700px;
-  background-color: white;
-  height: 20px;
-}
-.about{
-  width: 100%;
-  
-  display: flex;
-  justify-content: center;
-  color: white;
-  background-color:#333642 ;
-  
-  font-family: 'Encode Sans SC', sans-serif;
-  letter-spacing: 0.7mm;
-  
-}
-.about-child{
-  background-color: #1d1e22;
-width: 80%;
-height: 98%;
-margin-top: 4%;
-margin-bottom: 4%;
-text-align: start;
-padding: 20px;
-border: 1px solid #a5a4a4;
-box-shadow: -10px 10px  gray , 10px -10px  gray;
-}
-.heads{
-  font-size: 35px;
-  padding: 10px;
-}
-.heads1{
-  font-size: 42px;
-  padding: 10px;
-}
-.heads2{
-  font-size: 28px;
-  padding: 10px;
-}
 
-p2{
- 
-  font-family: 'Raleway', sans-serif;
-padding: 10px;
-font-size: 18px;
-line-height: 9mm;
-letter-spacing: 3px;
-}
-
-span{
-  color: #00ff00;
-  cursor: pointer;
-  text-decoration: underline;
-}
-span:hover{
-  opacity: 0.8;
-}
-.clear1{
-  position: sticky;
-  top:12.5%;
-  left:16%;
-  height: 10px;
-  font-size: 15px;
-  width: 30px;
-  color: gray;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
