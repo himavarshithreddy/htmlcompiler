@@ -255,3 +255,6 @@ function download(){
     $(".light,.dark").toggleClass("light").toggleClass("dark");
 });
 
+function name(){
+  console.log("Website by HimavarshithReddy")
+}
