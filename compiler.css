@@ -325,12 +325,6 @@ img{
     }
   }
 .website-counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-website-counter {
   background-color: #ff4957;
   height: 50px;
   width: 80px;
