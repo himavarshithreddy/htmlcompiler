@@ -258,7 +258,7 @@ function download(){
 function name(){
   console.log("Website by HimavarshithReddy")
 };
-
+function counter(){
 var counterContainer = document.querySelector(".website-counter");
 var resetButton = document.querySelector("#reset");
 var visitCount = localStorage.getItem("page_view");
@@ -279,3 +279,4 @@ resetButton.addEventListener("click", () => {
   localStorage.setItem("page_view", 1);
   counterContainer.innerHTML = visitCount;
 });
+};
