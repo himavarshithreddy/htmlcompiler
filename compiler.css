@@ -29,6 +29,8 @@
   }
 body{
     background-color: #333642;
+    height:640px;
+    width:1356;
 }
 .main{
     width:100%;
