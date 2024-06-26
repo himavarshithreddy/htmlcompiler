@@ -104,12 +104,13 @@ iframe{
 }
 .run{
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #04AA6D;
     cursor: pointer;
-    padding: 9px 13px;
+    padding: 9px 14px;
     border-radius: 3px;
     border: none;
+    text-align: center;
 }
 .run:hover{
     background-color: #038656;
@@ -119,8 +120,8 @@ iframe{
     color:white;
     cursor: pointer;
     border: none;
-    padding:7px 17px ;
-    font-size: 18px;
+    padding:9px 14px ;
+    font-size: 16px;
     border-radius: 3px;
 }
 .download:hover{
@@ -237,7 +238,7 @@ img{
 
   .check {
     display: inline-block;
-    height: 16px;
+    height: 18px;
     position: relative;
     width: 33.5px;
   }
@@ -259,7 +260,7 @@ img{
   
   .slider:before {
     background-color: #fff;
-    bottom: 1px;
+    bottom: 2px;
     content: "";
     height: 14px;
     left: 2.5px;

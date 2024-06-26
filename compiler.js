@@ -1,5 +1,6 @@
 
 // run code
+
 function run(){
   
   var htmlCode = document.getElementById("htmlcode").value;
@@ -256,7 +257,5 @@ function download(){
     $(".light,.dark").toggleClass("light").toggleClass("dark");
 });
 
-function name(){
-  console.log("Website by HimavarshithReddy")
-};
+
 
