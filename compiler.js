@@ -1,4 +1,7 @@
 
+// Live preview listener guard
+var liveListenersActive = false;
+
 // Run code
 function run(){
   var htmlCode = document.getElementById("htmlcode").value;
@@ -13,12 +16,13 @@ function run(){
 // Live preview toggle
 function result() {
   var checkBox = document.getElementById("live");
-  if (checkBox.checked == true){
-    document.getElementById("htmlcode").addEventListener("input", run),
-    document.getElementById("cssCode").addEventListener("input", run),
-    document.getElementById("jsCode").addEventListener("input", run),
+  if (checkBox.checked == true && !liveListenersActive){
+    document.getElementById("htmlcode").addEventListener("input", run);
+    document.getElementById("cssCode").addEventListener("input", run);
+    document.getElementById("jsCode").addEventListener("input", run);
+    liveListenersActive = true;
     run();
-  } else {
+  } else if (checkBox.checked == false) {
     document.getElementById("run").addEventListener("click", run);
   }
 }
@@ -93,6 +97,7 @@ function running() {
     document.getElementById("htmlcode").removeEventListener("input", run);
     document.getElementById("cssCode").removeEventListener("input", run);
     document.getElementById("jsCode").removeEventListener("input", run);
+    liveListenersActive = false;
   }
 }
 
@@ -100,7 +105,7 @@ function running() {
 function download(){
   var checks = document.getElementById("split");
   if (checks.checked == true){
-    var text1 = document.getElementById("htmlcode").value.replace("</html>", "");
+    var text1 = document.getElementById("htmlcode").value.replace(/<\/html>/gi, "");
     var text2 = "<style>"+document.getElementById("cssCode").value+"</style>";
     var text3 = "<scri"+"pt>"+document.getElementById("jsCode").value+"</scri"+"pt>"+"</html>";
     text1 = text1.replace(/\n/g, "\r\n");
