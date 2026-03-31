@@ -14,17 +14,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
-
-
-
 </head>
 <body id="body" onload="run();">
 
 <div class="main">
   <div class="navbar">
     <div class="navchild">
+
+      <!-- Brand -->
+      <div class="brand">
+        <span class="brand-icon">&#9654;</span>
+        <span class="brand-name">HTML Compiler</span>
+      </div>
+
+      <!-- Toggle controls -->
       <div class="main-nav">
-        <div title="Live Preview">
+        <div class="nav-item" title="Live Preview">
           <p class="navt" id="p1">Live Preview</p>
           <div class="checkwrap">
             <label class="check" for="live">
@@ -33,8 +38,8 @@
             </label>
           </div>
         </div>
-        <div title="Change Orientation">
-          <p class="navt" id="p2">Change Orientation</p>
+        <div class="nav-item" title="Change Orientation">
+          <p class="navt" id="p2">Orientation</p>
           <div class="checkwrap">
             <label class="check" for="orientation">
               <input type="checkbox" id="orientation" onclick="orientation(); split();">
@@ -42,8 +47,8 @@
             </label>
           </div>
         </div>
-        <div title="Change Theme">
-          <p class="navt" id="p3">Change Theme</p>
+        <div class="nav-item" title="Change Theme">
+          <p class="navt" id="p3">Light Mode</p>
           <div class="checkwrap">
             <label class="check" for="theme">
               <input type="checkbox" id="theme" onclick="theme();">
@@ -51,7 +56,7 @@
             </label>
           </div>
         </div>
-        <div title="Split Editor">
+        <div class="nav-item" title="Split Editor">
           <p class="navt" id="p4">Split Editor</p>
           <div class="checkwrap">
             <label class="check" for="split">
@@ -61,23 +66,27 @@
           </div>
         </div>
       </div>
-      <div class="navchild2">
-        <div class="run-nav">
-          <button id="run" class="run" onclick="run();" title="Run Code">Run »</button>
-        </div>
-        <div class="navchild3">
-          <button title="Download Code" class="download" onclick="download();">Save</button>
-          <img src="/assests/fullscreen.png" id="fullsc" onclick="full();" title="Full Screen Preview" width="40px">
-          <button title="Close FullScreen" id="close" class="close" onclick="closefull();">X</button>
-        </div>
+
+      <!-- Action buttons -->
+      <div class="action-nav">
+        <button id="run" class="run" onclick="run();" title="Run Code (Alt+R)">&#9654; Run</button>
+        <button title="Save Code" class="download" onclick="download();">&#8659; Save</button>
+        <button title="Full Screen Preview" id="fullsc" class="fullscreen-btn" onclick="full();">&#x26F6;</button>
+        <button title="Close FullScreen" id="close" class="close" onclick="closefull();">&#10005;</button>
       </div>
+
     </div>
   </div>
 
   <div id="compiler" class="compiler">
     <div id="editor" class="editor">
-      <textarea class="htmlcode" spellcheck="false" id="htmlcode">
-<!-- Use Alt + R for Instant Preview! -->
+
+      <!-- HTML panel -->
+      <div class="panel-wrap" id="htmlPanel">
+        <div class="panel-header">
+          <span class="lang-badge html-badge">HTML</span>
+        </div>
+        <textarea class="htmlcode" spellcheck="false" id="htmlcode"><!-- Use Alt + R for Instant Preview! -->
 <!-- Use Alt + C to Clear Code -->
 
 <!DOCTYPE html>
@@ -111,10 +120,25 @@ img {
 </ul>
 <img src="/assests/avatar.png" alt="Avatar" style="width:200px">
 </body>
-</html>
-</textarea>
-      <textarea class="csscode" id="cssCode" placeholder="CSS Code"></textarea>
-      <textarea class="jscode" id="jsCode" placeholder="JavaScript Code"></textarea>
+</html></textarea>
+      </div>
+
+      <!-- CSS panel (hidden until Split Editor is enabled) -->
+      <div class="panel-wrap" id="cssPanel" style="display:none;">
+        <div class="panel-header">
+          <span class="lang-badge css-badge">CSS</span>
+        </div>
+        <textarea class="csscode" id="cssCode" placeholder="CSS Code" spellcheck="false"></textarea>
+      </div>
+
+      <!-- JS panel (hidden until Split Editor is enabled) -->
+      <div class="panel-wrap" id="jsPanel" style="display:none;">
+        <div class="panel-header">
+          <span class="lang-badge js-badge">JS</span>
+        </div>
+        <textarea class="jscode" id="jsCode" placeholder="JavaScript Code" spellcheck="false"></textarea>
+      </div>
+
     </div>
     <div class="result">
       <iframe id="result" allowfullscreen></iframe>
@@ -132,7 +156,18 @@ document.onkeyup = function(e) {
   }
 };
 
-
+// Tab key: insert two spaces instead of moving focus
+document.querySelectorAll('textarea').forEach(function(ta) {
+  ta.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      var start = this.selectionStart;
+      var end = this.selectionEnd;
+      this.value = this.value.substring(0, start) + '  ' + this.value.substring(end);
+      this.selectionStart = this.selectionEnd = start + 2;
+    }
+  });
+});
 </script>
 
 </body>
