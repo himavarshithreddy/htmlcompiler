@@ -1,93 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f0f1a">
 <link rel="shortcut icon" href="/assests/favicon.ico">
-<title>Html Compiler - Online Html Editor</title>
-<meta name="Description" content="Html Compiler is an online IDE with an HTML compiler. Quick and easy way to run HTML programs online.">
-<meta name="Keywords" content="Online Html Compiler, Online Html Editor, online html compiler, execute html online, compile html code online, online html ide, Online Html IDE, Html Coding Online, Practice Html Online, Execute Html Online, Compile Html Online, Online HTML Editor (HTML-5), compile, execute, Online HTML Compiler with CSS and JavaScript, Javascript Compiler, HTML JavaScript Compiler, programs, online, linux, experience, cloud, computing, source code, dropbox, googledrive, onedrive, programming, java, jsp, cold fusion, c, c++, pascal, fortran, php, perl, ruby, python, browsers, iphones, ipads, smart tv.">
+<title>HTML Compiler — Online HTML/CSS/JS Editor</title>
+<meta name="description" content="HTML Compiler is a professional online IDE for writing and previewing HTML, CSS, and JavaScript instantly in your browser.">
+<meta name="keywords" content="Online Html Compiler, Online Html Editor, online html ide, HTML CSS JS Playground, run html online, html editor">
 <script src="compiler.js" type="text/javascript"></script>
 <link rel="stylesheet" href="compiler.css" type="text/css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body id="body" onload="run();">
+<body id="body" onload="run(); initResizer(); initStatusBar();">
+
+<!-- Toast notification container -->
+<div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <div class="main">
-  <div class="navbar">
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navchild">
 
       <!-- Brand -->
-      <div class="brand">
-        <span class="brand-icon">&#9654;</span>
+      <div class="brand" aria-label="HTML Compiler">
+        <svg class="brand-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M8 6L3 12L8 18" stroke="#04AA6D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6L21 12L16 18" stroke="#04AA6D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 4L10 20" stroke="#04AA6D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
         <span class="brand-name">HTML Compiler</span>
       </div>
 
+      <div class="nav-divider" role="separator"></div>
+
       <!-- Toggle controls -->
-      <div class="main-nav">
-        <div class="nav-item" title="Live Preview">
-          <p class="navt" id="p1">Live Preview</p>
+      <div class="main-nav" role="group" aria-label="Editor options">
+
+        <div class="nav-item">
+          <label class="nav-item-label" for="live">Live Preview</label>
           <div class="checkwrap">
-            <label class="check" for="live">
+            <label class="check" for="live" aria-label="Toggle live preview">
               <input type="checkbox" id="live" onclick="result(); running();">
-              <div id="slider1" class="slider round"></div>
+              <div class="slider round"></div>
             </label>
           </div>
         </div>
-        <div class="nav-item" title="Change Orientation">
-          <p class="navt" id="p2">Orientation</p>
+
+        <div class="nav-item">
+          <label class="nav-item-label" for="orientation">Orientation</label>
           <div class="checkwrap">
-            <label class="check" for="orientation">
+            <label class="check" for="orientation" aria-label="Toggle orientation">
               <input type="checkbox" id="orientation" onclick="orientation(); split();">
-              <div id="slider2" class="slider round"></div>
+              <div class="slider round"></div>
             </label>
           </div>
         </div>
-        <div class="nav-item" title="Change Theme">
-          <p class="navt" id="p3">Light Mode</p>
+
+        <div class="nav-item">
+          <label class="nav-item-label" for="theme">Light Mode</label>
           <div class="checkwrap">
-            <label class="check" for="theme">
+            <label class="check" for="theme" aria-label="Toggle light mode">
               <input type="checkbox" id="theme" onclick="theme();">
-              <div id="slider3" class="slider round"></div>
+              <div class="slider round"></div>
             </label>
           </div>
         </div>
-        <div class="nav-item" title="Split Editor">
-          <p class="navt" id="p4">Split Editor</p>
+
+        <div class="nav-item">
+          <label class="nav-item-label" for="split">Split Editor</label>
           <div class="checkwrap">
-            <label class="check" for="split">
+            <label class="check" for="split" aria-label="Toggle split editor">
               <input type="checkbox" id="split" onclick="split();">
-              <div id="slider4" class="slider round"></div>
+              <div class="slider round"></div>
             </label>
           </div>
         </div>
+
       </div>
+
+      <div class="nav-divider" role="separator"></div>
 
       <!-- Action buttons -->
-      <div class="action-nav">
-        <button id="run" class="run" onclick="run();" title="Run Code (Alt+R)">&#9654; Run</button>
-        <button title="Save Code" class="download" onclick="download();">&#8659; Save</button>
-        <button title="Full Screen Preview" id="fullsc" class="fullscreen-btn" onclick="full();">&#x26F6;</button>
-        <button title="Close FullScreen" id="close" class="close" onclick="closefull();">&#10005;</button>
+      <div class="action-nav" role="group" aria-label="Editor actions">
+
+        <button id="run" class="btn-run" onclick="run();" title="Run Code (Alt+R)" aria-label="Run code">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
+          <span>Run</span>
+          <kbd class="kbd-hint">Alt+R</kbd>
+        </button>
+
+        <button class="btn-save" onclick="download();" title="Save / Download (Alt+S)" aria-label="Save code">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span>Save</span>
+        </button>
+
+        <button class="btn-icon-only" id="fullsc" onclick="full();" title="Full Screen Preview" aria-label="Enter fullscreen preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/>
+          </svg>
+        </button>
+
+        <button class="btn-icon-only btn-close-full" id="close" onclick="closefull();" title="Exit Fullscreen" aria-label="Exit fullscreen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 3v3a2 2 0 01-2 2H3M21 8h-3a2 2 0 01-2-2V3M3 16h3a2 2 0 012 2v3M16 21v-3a2 2 0 012-2h3"/>
+          </svg>
+        </button>
+
       </div>
-
     </div>
-  </div>
+  </nav>
 
+  <!-- ===== Editor + Preview ===== -->
   <div id="compiler" class="compiler">
+
+    <!-- Editor column -->
     <div id="editor" class="editor">
 
       <!-- HTML panel -->
       <div class="panel-wrap" id="htmlPanel">
         <div class="panel-header">
-          <span class="lang-badge html-badge">HTML</span>
+          <div class="panel-header-left">
+            <span class="lang-badge html-badge">HTML</span>
+            <span class="panel-filename">index.html</span>
+          </div>
+          <div class="panel-header-actions">
+            <button class="panel-action-btn" onclick="copyPanel('htmlcode')" title="Copy code" aria-label="Copy HTML code">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+              </svg>
+            </button>
+            <button class="panel-action-btn" onclick="clearPanel('htmlcode')" title="Clear code" aria-label="Clear HTML code">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        <textarea class="htmlcode" spellcheck="false" id="htmlcode"><!-- Use Alt + R for Instant Preview! -->
-<!-- Use Alt + C to Clear Code -->
+        <textarea class="htmlcode" spellcheck="false" id="htmlcode" aria-label="HTML editor"><!-- Press Alt+R to run  |  Alt+C to clear  |  Tab to indent -->
 
 <!DOCTYPE html>
 <html>
@@ -95,30 +153,43 @@
 <title>HTML Compiler</title>
 <style>
 body {
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0f0f1a;
+  color: #e8e8f0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  margin: 0;
 }
+h1 { color: #04AA6D; margin-bottom: 8px; }
+p  { color: #8888aa; font-size: 14px; margin-bottom: 24px; }
+ul { list-style: none; padding: 0; max-width: 520px; width: 100%; }
 li {
-  padding: 10px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a40;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-img {
-  margin-top: 20px;
-  margin-left: 180px;
-}
+li::before { content: "▸"; color: #04AA6D; }
 </style>
 </head>
 <body>
 <h1>Welcome to HTML Compiler</h1>
+<p>A professional online IDE for HTML, CSS &amp; JavaScript</p>
 <ul>
-  <li>Edit the code in the window to the left, and click "Run" to view the result.</li>
-  <li>Enable the Live preview for instant preview!</li>
-  <li>Use Change Orientation to change the orientation of the editor and viewer!</li>
-  <li>Use Change Theme to switch between light mode and dark mode!</li>
-  <li>Enable Split Editor to split HTML, CSS, and JS.</li>
-  <li>Click on Save to save your code!</li>
+  <li>Edit code on the left and click <strong>Run</strong> (or Alt+R) to preview</li>
+  <li>Toggle <strong>Live Preview</strong> for instant updates as you type</li>
+  <li>Use <strong>Split Editor</strong> to work with HTML, CSS, and JS separately</li>
+  <li>Toggle <strong>Orientation</strong> to switch between side-by-side and stacked layout</li>
+  <li>Switch <strong>Light Mode</strong> for a bright theme</li>
+  <li>Click <strong>Save</strong> (Alt+S) to download your code as an HTML file</li>
 </ul>
-<img src="/assests/avatar.png" alt="Avatar" style="width:200px">
 </body>
 </html></textarea>
       </div>
@@ -126,33 +197,111 @@ img {
       <!-- CSS panel (hidden until Split Editor is enabled) -->
       <div class="panel-wrap" id="cssPanel" style="display:none;">
         <div class="panel-header">
-          <span class="lang-badge css-badge">CSS</span>
+          <div class="panel-header-left">
+            <span class="lang-badge css-badge">CSS</span>
+            <span class="panel-filename">style.css</span>
+          </div>
+          <div class="panel-header-actions">
+            <button class="panel-action-btn" onclick="copyPanel('cssCode')" title="Copy code" aria-label="Copy CSS code">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+              </svg>
+            </button>
+            <button class="panel-action-btn" onclick="clearPanel('cssCode')" title="Clear code" aria-label="Clear CSS code">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        <textarea class="csscode" id="cssCode" placeholder="CSS Code" spellcheck="false"></textarea>
+        <textarea class="csscode" id="cssCode" placeholder="/* CSS styles */" spellcheck="false" aria-label="CSS editor"></textarea>
       </div>
 
       <!-- JS panel (hidden until Split Editor is enabled) -->
       <div class="panel-wrap" id="jsPanel" style="display:none;">
         <div class="panel-header">
-          <span class="lang-badge js-badge">JS</span>
+          <div class="panel-header-left">
+            <span class="lang-badge js-badge">JS</span>
+            <span class="panel-filename">script.js</span>
+          </div>
+          <div class="panel-header-actions">
+            <button class="panel-action-btn" onclick="copyPanel('jsCode')" title="Copy code" aria-label="Copy JavaScript code">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+              </svg>
+            </button>
+            <button class="panel-action-btn" onclick="clearPanel('jsCode')" title="Clear code" aria-label="Clear JavaScript code">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        <textarea class="jscode" id="jsCode" placeholder="JavaScript Code" spellcheck="false"></textarea>
+        <textarea class="jscode" id="jsCode" placeholder="// JavaScript code" spellcheck="false" aria-label="JavaScript editor"></textarea>
       </div>
 
     </div>
-    <div class="result">
-      <iframe id="result" allowfullscreen></iframe>
+
+    <!-- Drag-to-resize handle -->
+    <div class="resizer" id="resizer" title="Drag to resize panels" aria-hidden="true" role="separator"></div>
+
+    <!-- Preview column -->
+    <div class="result" id="resultPanel">
+      <div class="preview-header">
+        <div class="preview-header-left">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="preview-title">Preview</span>
+        </div>
+        <button class="panel-action-btn" onclick="run()" title="Reload preview" aria-label="Reload preview">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+          </svg>
+        </button>
+      </div>
+      <iframe id="result" allowfullscreen title="Preview output"></iframe>
+    </div>
+
+  </div>
+
+  <!-- ===== Status Bar ===== -->
+  <div class="status-bar" id="statusBar" role="contentinfo" aria-label="Editor status">
+    <div class="status-left">
+      <span class="status-item" id="statusTheme" title="Current theme">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        Dark
+      </span>
+      <span class="status-sep" aria-hidden="true"></span>
+      <span class="status-item" id="statusPanel" title="Active panel">HTML</span>
+    </div>
+    <div class="status-center">
+      <span class="status-item status-shortcuts" aria-label="Keyboard shortcuts">
+        <kbd>Alt+R</kbd>&thinsp;Run
+        &ensp;<kbd>Alt+S</kbd>&thinsp;Save
+        &ensp;<kbd>Alt+C</kbd>&thinsp;Clear
+        &ensp;<kbd>Tab</kbd>&thinsp;Indent
+      </span>
+    </div>
+    <div class="status-right">
+      <span class="status-item" id="statusCursor" title="Cursor position">Ln 1, Col 1</span>
+      <span class="status-sep" aria-hidden="true"></span>
+      <span class="status-item" id="statusChars" title="Character count">0 chars</span>
     </div>
   </div>
-</div>
+
+</div><!-- /.main -->
 
 <script>
 document.onkeyup = function(e) {
-  if (e.altKey && e.which === 82) { // Alt + R
+  if (e.altKey && e.which === 82) { // Alt+R — Run
     run();
-  } else if (e.altKey && e.which === 67) { // Alt + C
+  } else if (e.altKey && e.which === 67) { // Alt+C — Clear
     document.getElementById("htmlcode").value = "<!DOCTYPE html>\n\n<html>\n\n<head>\n\n\n\n</head>\n\n</html>";
     run();
+    updateStatusBar(document.getElementById("htmlcode"));
+  } else if (e.altKey && e.which === 83) { // Alt+S — Save
+    download();
   }
 };
 
@@ -162,9 +311,10 @@ document.querySelectorAll('textarea').forEach(function(ta) {
     if (e.key === 'Tab') {
       e.preventDefault();
       var start = this.selectionStart;
-      var end = this.selectionEnd;
+      var end   = this.selectionEnd;
       this.value = this.value.substring(0, start) + '  ' + this.value.substring(end);
       this.selectionStart = this.selectionEnd = start + 2;
+      updateStatusBar(this);
     }
   });
 });
