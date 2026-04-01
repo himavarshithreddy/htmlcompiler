@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0f0f1a">
-<link rel="shortcut icon" href="/assests/favicon.ico">
+<link rel="shortcut icon" href="/assets/favicon.ico">
 <title>HTML Compiler — Online HTML/CSS/JS Editor</title>
 <meta name="description" content="HTML Compiler is a professional online IDE for writing and previewing HTML, CSS, and JavaScript instantly in your browser.">
 <meta name="keywords" content="Online Html Compiler, Online Html Editor, online html ide, HTML CSS JS Playground, run html online, html editor">
-<script src="compiler.js" type="text/javascript"></script>
+<script src="compiler.js" type="text/javascript" defer></script>
 <link rel="stylesheet" href="compiler.css" type="text/css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -294,13 +294,13 @@ li::before { content: "▸"; color: #04AA6D; }
 
 <script>
 document.onkeyup = function(e) {
-  if (e.altKey && e.which === 82) { // Alt+R — Run
+  if (e.altKey && e.key.toLowerCase() === 'r') { // Alt+R — Run
     run();
-  } else if (e.altKey && e.which === 67) { // Alt+C — Clear
+  } else if (e.altKey && e.key.toLowerCase() === 'c') { // Alt+C — Clear
     document.getElementById("htmlcode").value = "<!DOCTYPE html>\n\n<html>\n\n<head>\n\n\n\n</head>\n\n</html>";
     run();
     updateStatusBar(document.getElementById("htmlcode"));
-  } else if (e.altKey && e.which === 83) { // Alt+S — Save
+  } else if (e.altKey && e.key.toLowerCase() === 's') { // Alt+S — Save
     download();
   }
 };
