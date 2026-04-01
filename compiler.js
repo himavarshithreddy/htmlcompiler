@@ -22,8 +22,6 @@ function result() {
     document.getElementById("jsCode").addEventListener("input", run);
     liveListenersActive = true;
     run();
-  } else if (!checkBox.checked) {
-    document.getElementById("run").addEventListener("click", run);
   }
 }
 
@@ -119,10 +117,10 @@ function download(){
     text1 = text1.replace(/\n/g, "\r\n");
     text2 = text2.replace(/\n/g, "\r\n");
     text3 = text3.replace(/\n/g, "\r\n");
-    blob = new Blob([text1, text2, text3], { type: "text/plain" });
+    blob = new Blob([text1, text2, text3], { type: "text/html" });
   } else {
     text = document.getElementById("htmlcode").value.replace(/\n/g, "\r\n");
-    blob = new Blob([text], { type: "text/plain" });
+    blob = new Blob([text], { type: "text/html" });
   }
   var anchor = document.createElement("a");
   anchor.download = "index.html";
@@ -137,7 +135,7 @@ function download(){
 
 // ===== Landscape orientation =====
 function Landscape(){
-  document.getElementById("result").style.width       = '201%';
+  document.getElementById("result").style.width       = '200%';
   document.getElementById("compiler").style.flexDirection = "column";
   document.getElementById("result").style.marginLeft  = "0.4%";
   document.getElementById("result").style.height      = "98%";
