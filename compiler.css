@@ -257,6 +257,43 @@ input:checked + .slider:before {
 .slider.round { border-radius: 16px; }
 .slider.round:before { border-radius: 50%; }
 
+/* Per-toggle accent colors — each reflects its purpose */
+/* Live Preview: green (run / play) */
+#live:checked + .slider        { background-color: rgba(4,170,109,0.15); border-color: #04AA6D; }
+#live:checked + .slider:before { background-color: #04AA6D; }
+
+/* Orientation: violet (layout / direction) */
+#orientation:checked + .slider        { background-color: rgba(124,106,247,0.15); border-color: #7c6af7; }
+#orientation:checked + .slider:before { background-color: #7c6af7; }
+
+/* Light Mode: amber (sun / brightness) */
+#theme:checked + .slider        { background-color: rgba(245,158,11,0.18); border-color: #f59e0b; }
+#theme:checked + .slider:before { background-color: #f59e0b; }
+
+/* Split Editor: sky blue (columns / split) */
+#split:checked + .slider        { background-color: rgba(56,189,248,0.15); border-color: #38bdf8; }
+#split:checked + .slider:before { background-color: #38bdf8; }
+
+/* Active toggle label tint — color matches its toggle */
+.nav-item:has(#live:checked)        .nav-item-label { color: #04AA6D; }
+.nav-item:has(#orientation:checked) .nav-item-label { color: #7c6af7; }
+.nav-item:has(#theme:checked)       .nav-item-label { color: #f59e0b; }
+.nav-item:has(#split:checked)       .nav-item-label { color: #38bdf8; }
+
+/* Light-mode toggle overrides — darker shades for contrast on white navbar */
+body.light-mode #live:checked + .slider        { background-color: rgba(5,150,105,0.14);  border-color: #059669; }
+body.light-mode #live:checked + .slider:before { background-color: #059669; }
+
+body.light-mode #theme:checked + .slider        { background-color: rgba(217,119,6,0.15); border-color: #d97706; }
+body.light-mode #theme:checked + .slider:before { background-color: #d97706; }
+
+body.light-mode #split:checked + .slider        { background-color: rgba(2,132,199,0.14);  border-color: #0284c7; }
+body.light-mode #split:checked + .slider:before { background-color: #0284c7; }
+
+body.light-mode .nav-item:has(#live:checked)  .nav-item-label { color: #059669; }
+body.light-mode .nav-item:has(#theme:checked) .nav-item-label { color: #d97706; }
+body.light-mode .nav-item:has(#split:checked) .nav-item-label { color: #0284c7; }
+
 /* ===== Action Buttons ===== */
 .action-nav {
   display: flex;
@@ -479,6 +516,16 @@ input:checked + .slider:before {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
+
+/* Semantic hover tints for panel action buttons */
+.panel-action-copy:hover   { background: rgba(56,189,248,0.12);  color: #38bdf8; }
+.panel-action-clear:hover  { background: rgba(239,68,68,0.12);   color: #ef4444; }
+.panel-action-reload:hover { background: rgba(4,170,109,0.12);   color: #04AA6D; }
+
+/* Light-mode overrides — darker shades for contrast on light panel headers */
+body.light-mode .panel-action-copy:hover   { background: rgba(2,132,199,0.10);  color: #0284c7; }
+body.light-mode .panel-action-clear:hover  { background: rgba(220,38,38,0.10);  color: #dc2626; }
+body.light-mode .panel-action-reload:hover { background: rgba(5,150,105,0.10);  color: #059669; }
 
 /* ===== Language badges ===== */
 .lang-badge {
