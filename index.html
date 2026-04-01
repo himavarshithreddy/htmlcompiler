@@ -133,12 +133,12 @@
             <span class="panel-filename">index.html</span>
           </div>
           <div class="panel-header-actions">
-            <button class="panel-action-btn" onclick="copyPanel('htmlcode')" title="Copy code" aria-label="Copy HTML code">
+            <button class="panel-action-btn panel-action-copy" onclick="copyPanel('htmlcode')" title="Copy code" aria-label="Copy HTML code">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
               </svg>
             </button>
-            <button class="panel-action-btn" onclick="clearPanel('htmlcode')" title="Clear code" aria-label="Clear HTML code">
+            <button class="panel-action-btn panel-action-clear" onclick="clearPanel('htmlcode')" title="Clear code" aria-label="Clear HTML code">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
               </svg>
@@ -202,12 +202,12 @@ li::before { content: "▸"; color: #04AA6D; }
             <span class="panel-filename">style.css</span>
           </div>
           <div class="panel-header-actions">
-            <button class="panel-action-btn" onclick="copyPanel('cssCode')" title="Copy code" aria-label="Copy CSS code">
+            <button class="panel-action-btn panel-action-copy" onclick="copyPanel('cssCode')" title="Copy code" aria-label="Copy CSS code">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
               </svg>
             </button>
-            <button class="panel-action-btn" onclick="clearPanel('cssCode')" title="Clear code" aria-label="Clear CSS code">
+            <button class="panel-action-btn panel-action-clear" onclick="clearPanel('cssCode')" title="Clear code" aria-label="Clear CSS code">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
               </svg>
@@ -225,12 +225,12 @@ li::before { content: "▸"; color: #04AA6D; }
             <span class="panel-filename">script.js</span>
           </div>
           <div class="panel-header-actions">
-            <button class="panel-action-btn" onclick="copyPanel('jsCode')" title="Copy code" aria-label="Copy JavaScript code">
+            <button class="panel-action-btn panel-action-copy" onclick="copyPanel('jsCode')" title="Copy code" aria-label="Copy JavaScript code">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
               </svg>
             </button>
-            <button class="panel-action-btn" onclick="clearPanel('jsCode')" title="Clear code" aria-label="Clear JavaScript code">
+            <button class="panel-action-btn panel-action-clear" onclick="clearPanel('jsCode')" title="Clear code" aria-label="Clear JavaScript code">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
               </svg>
@@ -254,7 +254,7 @@ li::before { content: "▸"; color: #04AA6D; }
           </svg>
           <span class="preview-title">Preview</span>
         </div>
-        <button class="panel-action-btn" onclick="run()" title="Reload preview" aria-label="Reload preview">
+        <button class="panel-action-btn panel-action-reload" onclick="run()" title="Reload preview" aria-label="Reload preview">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
           </svg>
